@@ -34,7 +34,7 @@ _force()
             return 0;
         ;;
         test)
-            COMPREPLY=( $(compgen -W "-namespace= -v" -- $cur) )
+            COMPREPLY=( $(compgen -W "-namespace -v" -- $cur) )
             return 0;
         ;;
         record)
@@ -115,6 +115,10 @@ _force()
             COMPREPLY=( $(compgen -W "insert update upsert query retrieve job batch batches" -- $cur) )
             return 0;
         ;;
+        import)
+            COMPREPLY=( $(compgen -W "-rollbackonerror -runalltests -checkonly -purgeondelete -allowmissingfiles -autoupdatepackage -test -testlevel -ignorewarnings -directory -verbose" -- $cur) )
+            return 0;
+        ;;
 
         # all commands
         help)
@@ -125,6 +129,7 @@ _force()
             COMPREPLY=( $(compgen -W "$ALL_COMMANDS help" -- $cur) )
             return 0;
         ;;
+
 
         # arguments
         -i)
