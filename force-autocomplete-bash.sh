@@ -51,6 +51,10 @@ _force()
             fi
             return 0;
         ;;
+        upsert)
+            COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            return 0;
+        ;;
         delete)
             if [ $prevprev = 'record' ];
             then
@@ -73,7 +77,27 @@ _force()
             COMPREPLY=( $(compgen -W "list create type delete" -- $cur) )
             return 0;
         ;;
+        query)
+            if [ $prevprev = 'force' ];
+            then
+                COMPREPLY=( $(compgen -W "--format:csv" -- $cur) )
+            else
+                COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            fi
+
+            return 0;
+        ;;
+        bulk)
+            COMPREPLY=( $(compgen -W "insert update upsert query retrieve job batch batches" -- $cur) )
+            return 0;
+        ;;
+
+        # all commands
         help)
+            COMPREPLY=( $(compgen -W "$ALL_COMMANDS" -- $cur) )
+            return 0;
+        ;;
+        force)
             COMPREPLY=( $(compgen -W "$ALL_COMMANDS" -- $cur) )
             return 0;
         ;;
@@ -92,8 +116,5 @@ _force()
             return 0;
         ;;
     esac
-
-
-    COMPREPLY=( $(compgen -W "$ALL_COMMANDS" -- $cur) )
 }
 complete -F _force force
