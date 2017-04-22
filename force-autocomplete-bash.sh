@@ -4,7 +4,7 @@ _force()
     local prev=${COMP_WORDS[COMP_CWORD-1]}
     local prevprev=${COMP_WORDS[COMP_CWORD-2]}
 
-    local ALL_COMMANDS="login logout logins active whoami describe sobject field record bulk fetch import export query apex log oauth test security version update push aura password notify limits help"
+    local ALL_COMMANDS="login logout logins active whoami describe sobject field record bulk fetch import export query apex log oauth test security version update push aura password notify limits"
     local ALL_TYPES="actionLinkGroupTemplates analyticSnapshots applications appMenus approvalProcesses assignmentRules authproviders aura autoResponseRules callCenters cachePartitions certs channelLayouts classes communities components connectedApps corsWhitelistOrigins customApplicationComponents customMetadata customPermissions dashboards dataSources datacategorygroups delegateGroups documents EmbeddedServiceConfig email escalationRules feedFilters flexipages flowDefinitions flows globalPicklists groups homePageComponents homePageLayouts installedPackages labels layouts LeadConvertSettings letterhead matchingRules namedCredentials objects objectTranslations pages pathAssistants permissionsets postTemplates profiles postTemplates postTemplates profiles queues quickActions remoteSiteSettings reports reportTypes roles scontrols settings sharingRules siteDotComSites sites staticresources synonymDictionaries tabs triggers weblinks workflows cspTrustedSites"
     local ALL_HOST="mobile1.t.salesforce.com login.salesforce.com"
     local ALL_STANDARD_OBJECTS="User Contact Lead Case Opportunity Account"
@@ -87,6 +87,14 @@ _force()
         ;;
         log)
             COMPREPLY=( $(compgen -W "delete" -- $cur) )
+            return 0;
+        ;;
+        notify)
+            COMPREPLY=( $(compgen -W "true false" -- $cur) )
+            return 0;
+        ;;
+        security)
+            COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
             return 0;
         ;;
         query)
