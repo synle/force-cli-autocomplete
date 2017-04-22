@@ -9,6 +9,21 @@ _force()
 
 
     case "$prev" in
+        push)
+            ALL_PUSH_OPTS="-f -t -n -rollbackonerror -runalltests -checkonly -purgeondelete -allowmissingfiles -autoupdatepackage -test -testlevel -ignorewarnings"
+            COMPREPLY=( $(compgen -W "$ALL_PUSH_OPTS" -- $cur) )
+            return 0;
+        ;;
+        fetch)
+            ALL_PUSH_OPTS="-f -t -n -d -type -name -directory -unpack -preserve -xml"
+            COMPREPLY=( $(compgen -W "$ALL_PUSH_OPTS" -- $cur) )
+            return 0;
+        ;;
+        aura)
+            ALL_PUSH_OPTS="push create delete list"
+            COMPREPLY=( $(compgen -W "$ALL_PUSH_OPTS" -- $cur) )
+            return 0;
+        ;;
         -i)
             COMPREPLY=( $(compgen -W "$ALL_HOST" -- $cur) )
             return 0;
