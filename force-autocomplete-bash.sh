@@ -81,6 +81,10 @@ _force()
             COMPREPLY=( $(compgen -W "list create delete import" -- $cur) )
             return 0;
         ;;
+        oauth)
+            COMPREPLY=( $(compgen -W "create" -- $cur) )
+            return 0;
+        ;;
         query)
             if [ $prevprev = 'force' ];
             then
