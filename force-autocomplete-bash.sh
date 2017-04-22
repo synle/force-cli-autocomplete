@@ -38,15 +38,31 @@ _force()
             return 0;
         ;;
         create)
-            COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            if [ $prevprev = 'record' ];
+            then
+                COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            fi
             return 0;
         ;;
         update)
-            COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            if [ $prevprev = 'record' ];
+            then
+                COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            fi
             return 0;
         ;;
         delete)
-            COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            if [ $prevprev = 'record' ];
+            then
+                COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            fi
+            return 0;
+        ;;
+        list)
+            if [ $prevprev = 'field' ];
+            then
+                COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
+            fi
             return 0;
         ;;
         describe)
