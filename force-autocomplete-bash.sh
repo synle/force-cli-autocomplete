@@ -9,6 +9,10 @@ _force()
 
 
     case "$prev" in
+        active)
+            COMPREPLY=( $(compgen -W "-a" -- $cur) )
+            return 0;
+        ;;
         push)
             ALL_PUSH_OPTS="-f -t -n -rollbackonerror -runalltests -checkonly -purgeondelete -allowmissingfiles -autoupdatepackage -test -testlevel -ignorewarnings"
             COMPREPLY=( $(compgen -W "$ALL_PUSH_OPTS" -- $cur) )
