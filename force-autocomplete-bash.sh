@@ -85,6 +85,10 @@ _force()
             COMPREPLY=( $(compgen -W "create" -- $cur) )
             return 0;
         ;;
+        log)
+            COMPREPLY=( $(compgen -W "delete" -- $cur) )
+            return 0;
+        ;;
         query)
             if [ $prevprev = 'force' ];
             then
