@@ -49,6 +49,20 @@ _force()
             COMPREPLY=( $(compgen -W "$ALL_STANDARD_OBJECTS" -- $cur) )
             return 0;
         ;;
+        describe)
+            COMPREPLY=( $(compgen -W "-n -t -json" -- $cur) )
+            return 0;
+        ;;
+        field)
+            COMPREPLY=( $(compgen -W "list create type delete" -- $cur) )
+            return 0;
+        ;;
+        help)
+            COMPREPLY=( $(compgen -W "$ALL_COMMANDS" -- $cur) )
+            return 0;
+        ;;
+
+        # arguments
         -i)
             COMPREPLY=( $(compgen -W "$ALL_HOST" -- $cur) )
             return 0;
