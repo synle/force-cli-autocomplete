@@ -77,6 +77,10 @@ _force()
             COMPREPLY=( $(compgen -W "list create type delete" -- $cur) )
             return 0;
         ;;
+        sobject)
+            COMPREPLY=( $(compgen -W "list create delete import" -- $cur) )
+            return 0;
+        ;;
         query)
             if [ $prevprev = 'force' ];
             then
