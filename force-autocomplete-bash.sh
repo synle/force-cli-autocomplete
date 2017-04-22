@@ -33,6 +33,10 @@ _force()
             COMPREPLY=( $(compgen -W "$ALL_PUSH_OPTS" -- $cur) )
             return 0;
         ;;
+        test)
+            COMPREPLY=( $(compgen -W "-namespace= -v" -- $cur) )
+            return 0;
+        ;;
         record)
             COMPREPLY=( $(compgen -W "get create update delete" -- $cur) )
             return 0;
@@ -118,7 +122,7 @@ _force()
             return 0;
         ;;
         force)
-            COMPREPLY=( $(compgen -W "$ALL_COMMANDS" -- $cur) )
+            COMPREPLY=( $(compgen -W "$ALL_COMMANDS help" -- $cur) )
             return 0;
         ;;
 
