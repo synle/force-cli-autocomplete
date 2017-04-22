@@ -9,6 +9,10 @@ _force()
 
 
     case "$prev" in
+        login)
+            COMPREPLY=( $(compgen -W "-i -u -p" -- $cur) )
+            return 0;
+        ;;
         active)
             COMPREPLY=( $(compgen -W "-a" -- $cur) )
             return 0;
