@@ -1,4 +1,4 @@
-_force()
+_force_cli_completion()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
     local prev=${COMP_WORDS[COMP_CWORD-1]}
@@ -146,4 +146,4 @@ _force()
         ;;
     esac
 }
-complete -F _force force
+complete -F _force_cli_completion force
