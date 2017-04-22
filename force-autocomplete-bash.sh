@@ -33,7 +33,7 @@ _force()
             return 0;
         ;;
         -f)
-            COMPREPLY=( $( compgen -o plusdirs -f -- $cur ) )
+            COMPREPLY=( $( compgen -d   -- $cur));
             return 0;
         ;;
     esac
