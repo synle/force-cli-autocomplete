@@ -151,4 +151,4 @@ _force_cli_completion()
         ;;
     esac
 }
-complete -F _force_cli_completion force
+complete -o nospace -F _force_cli_completion force
