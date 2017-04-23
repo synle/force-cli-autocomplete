@@ -149,6 +149,10 @@ _force_cli_completion()
             COMPREPLY=( $( compgen -d   -- $cur));
             return 0;
         ;;
+        -*)
+            COMPREPLY=( $( compgen -d   -- $cur));
+            return 0;
+        ;;
     esac
 }
 complete -o nospace -F _force_cli_completion force
